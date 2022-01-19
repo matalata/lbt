@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Player extends StatelessWidget {
-  const Player({Key? key}) : super(key: key);
+  final bool canRec;
+  const Player({Key? key, required this.canRec}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,7 @@ class Player extends StatelessWidget {
           children: [
             const SizedBox(width: 10),
             _buildPlayControl(),
-            const SizedBox(width: 10),
-            _buildRecControl(),
+            if (canRec) ...[const SizedBox(width: 10), _buildRecControl()],
             ElevatedButton.icon(
               icon: Icon(Icons.pause_circle_filled_rounded),
               label: Text("Pause"),
