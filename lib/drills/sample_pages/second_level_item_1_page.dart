@@ -11,8 +11,8 @@ class SecondLevelItem1Page extends StatelessWidget {
         length: 2,
         initialIndex: 0,
         child: Container(
-          width: 1300,
-          height: 1300,
+          width: 4000,
+          height: 4000,
           child: Column(
             children: [
               TabBar(
@@ -29,17 +29,18 @@ class SecondLevelItem1Page extends StatelessWidget {
               ),
               Expanded(
                   child: TabBarView(children: [
-                Text(
-                  'Упражнение',
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: const EdgeInsets.all(10),
+                  width: 500,
+                  child: Player(canRec: true),
                 ),
                 Container(
-                    alignment: Alignment.topLeft,
-                    padding: const EdgeInsets.all(10),
-                    width: 500,
-                    child: Player(canRec: true))
-                /*
-                    
-                        */
+                  alignment: Alignment.topLeft,
+                  padding: const EdgeInsets.all(10),
+                  width: 500,
+                  child: Player(canRec: false),
+                )
               ]))
             ],
           ),
