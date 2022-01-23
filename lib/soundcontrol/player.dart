@@ -13,11 +13,8 @@ class Player extends StatelessWidget {
             const SizedBox(width: 10),
             _buildPlayControl(),
             if (canRec) ...[const SizedBox(width: 10), _buildRecControl()],
-            ElevatedButton.icon(
-              icon: Icon(Icons.pause_circle_filled_rounded),
-              label: Text("Pause"),
-              onPressed: () {},
-            ),
+            const SizedBox(width: 10),
+            _buildStopControl(),
             const SizedBox(width: 10),
           ],
         ));
@@ -43,6 +40,22 @@ class Player extends StatelessWidget {
     late Icon icon;
     late Color color;
     icon = Icon(Icons.mic, color: Colors.red, size: 30);
+    color = Colors.red.withOpacity(0.1);
+    return ClipOval(
+      child: Material(
+        color: color,
+        child: InkWell(
+          child: SizedBox(width: 56, height: 56, child: icon),
+          onTap: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStopControl() {
+    late Icon icon;
+    late Color color;
+    icon = Icon(Icons.stop, color: Colors.black, size: 30);
     color = Colors.red.withOpacity(0.1);
     return ClipOval(
       child: Material(
